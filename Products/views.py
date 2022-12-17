@@ -1,10 +1,16 @@
-from django.views.generic import ListView
-from .models import products
+from rest_framework import generics
 
+from .models import products
+from .serializers import productsSerializer
 
 # Create your views here.
 
-class ProductListView(ListView):
-    model = products
-    template_name = 'Products/Productlist.html'
+class  productList(generics.ListCreateAPIView):
+    queryset = products.objects.all()
+    serializer_class = productsSerializer
+    
+    
+class productDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = products.objects.all()
+    serializer_class = productsSerializer
 
