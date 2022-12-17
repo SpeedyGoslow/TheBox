@@ -27,6 +27,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    "rest_framework.authtoken",
+    'corsheaders',
     'Products',
     'Useraccounts',
 
@@ -105,11 +107,22 @@ USE_I18N = True
 
 USE_TZ = True
 
-REST_FRAMEWORK = { # new
+REST_FRAMEWORK = { 
 "DEFAULT_PERMISSION_CLASSES": [
-"rest_framework.permissions.AllowAny",
+"rest_framework.permissions.IsAuthenticated",
+],
+"DEFAULT_AUTHENTICATION_CLASSES": [
+"rest_framework.authentication.SessionAuthentication",
+"rest_framework.authentication.TokenAuthentication",
 ],
 }
+
+CORS_ORIGIN_WHITELIST = (
+"http://localhost:9000",
+"http://localhost:8000",
+)
+
+CSRF_TRUSTED_ORIGINS = ["http://localhost:9000"]
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 

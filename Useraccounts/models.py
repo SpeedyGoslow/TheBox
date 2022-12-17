@@ -7,4 +7,3 @@ class SmeCustomUser(AbstractUser):
     SME_Name = models.CharField(max_length=150,null=True)
     SME_Address = models.CharField(max_length=150,null=True)
     SME_Phone = models.CharField(max_length=10,null=True)
-    
