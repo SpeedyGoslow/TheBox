@@ -1,17 +1,17 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
-from .forms import SmeCustomUserCreationForm,SmeCustomUserChangeForm
-from .models import SmeCustomUser
+from .forms import ManufacturerCustomUserCreationForm,ManufacturerCustomUserChangeForm
+from .models import ManufacturerCustomUser
 
 # Register your models here.
-class SmeCustomAdmin(UserAdmin):
-    add_form= SmeCustomUserCreationForm
-    form = SmeCustomUserChangeForm
-    model = SmeCustomUser
-    list_display = ["email","username","SME_Name","SME_Address","SME_Phone","is_staff"]
-    fieldsets = UserAdmin.fieldsets +((None,{"fields":("SME_Name",)}),(None,{"fields":("SME_Address",)}),(None,{"fields":("SME_Phone",)}),)
-    add_fieldsets = UserAdmin.add_fieldsets +((None,{"fields":("SME_Name",)}),(None,{"fields":("SME_Address",)}),(None,{"fields":("SME_Phone",)}),) 
+class ManufacturerCustomAdmin(UserAdmin):
+    add_form= ManufacturerCustomUserCreationForm
+    form = ManufacturerCustomUserChangeForm
+    model = ManufacturerCustomUser
+    list_display = ["email","username","Manufacturer_Name","Manufacturer_Address","Manufacturer_Phone","is_staff"]
+    fieldsets = UserAdmin.fieldsets +((None,{"fields":("Manufacturer_Name",)}),(None,{"fields":("Manufacturer_Address",)}),(None,{"fields":("Manufacturer_Phone",)}),)
+    add_fieldsets = UserAdmin.add_fieldsets +((None,{"fields":("Manufacturer_Name",)}),(None,{"fields":("Manufacturer_Address",)}),(None,{"fields":("Manufacturer_Phone",)}),) 
     
     
-admin.site.register(SmeCustomUser,SmeCustomAdmin)
+admin.site.register(ManufacturerCustomUser,ManufacturerCustomAdmin)

@@ -1,14 +1,14 @@
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
-from .models import SmeCustomUser
+from .models import ManufacturerCustomUser
 
-class SmeCustomUserCreationForm(UserCreationForm):
+class ManufacturerCustomUserCreationForm(UserCreationForm):
     class Meta(UserCreationForm):
-        model = SmeCustomUser
-        fields = UserCreationForm.Meta.fields +("SME_Name","SME_Address","SME_Phone",)
+        model = ManufacturerCustomUser
+        fields = UserCreationForm.Meta.fields +("Manufacturer_Name","Manufacturer_Address","Manufacturer_Phone",)
         
 
-class SmeCustomUserChangeForm(UserChangeForm):
+class ManufacturerCustomUserChangeForm(UserChangeForm):
     class Meta:
-        model = SmeCustomUser
+        model = ManufacturerCustomUser
         fields = UserChangeForm.Meta.fields

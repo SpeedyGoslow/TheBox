@@ -14,4 +14,4 @@ class IsSupplierOrReadOnly(permissions.BasePermission):
         
         
         
-        return obj.Supplier == request.user
+        return obj.Manufacturer == request.user

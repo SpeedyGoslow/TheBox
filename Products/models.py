@@ -5,6 +5,13 @@ category =(
     ('Perishables','Perishables'),
     ('Electronics','Electronics'),
     ('Stationary','Stationary'),
+    ("Machinery","Machinery"),
+    ("Tools","Tools"),
+    ("Furniture","Furniture"),
+    ("Materials","Materials"),
+    ("Vehicles","Vehicles"),
+    ("Clothing","Clothing"),
+    
 )
 
 
@@ -13,7 +20,7 @@ class products(models.Model):
     name = models.CharField(max_length=150,null=True)
     Category = models.CharField(max_length=70,choices=category,null=True)
     Quantity = models.PositiveBigIntegerField(null=True)
-    Supplier = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
+    Manufacturer = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
     
    
     class Meta:
@@ -21,7 +28,7 @@ class products(models.Model):
     
     
     def __str__(self):
-        return f'{self.name} By supplied by {self.Supplier.SME_Name}' 
+        return f'{self.name} supplied by {self.Manufacturer.Manufacturer_Name}' 
   
 
     
