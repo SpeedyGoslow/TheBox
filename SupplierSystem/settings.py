@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "allauth.account",
     "allauth.socialaccount",
     "dj_rest_auth.registration",
+    "drf_spectacular",
     
     
     #local
@@ -135,6 +136,7 @@ REST_FRAMEWORK = {
 "rest_framework.authentication.SessionAuthentication",
 "rest_framework.authentication.TokenAuthentication",
 ],
+"DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
 
 CORS_ORIGIN_WHITELIST = (
@@ -145,6 +147,15 @@ CORS_ORIGIN_WHITELIST = (
 CSRF_TRUSTED_ORIGINS = ["http://localhost:9000"]
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
+
+SPECTACULAR_SETTINGS = {
+"TITLE": "A Product Tracking Warehouse API System",
+"DESCRIPTION": "The Product Tracking API System tracks what manufacturers bring into the Warehouse and the people in the data warehouse are able to track every transaction of each product/goods brought by a manufacturer",
+"VERSION": "1.0.0",
+# OTHER SETTINGS
+}
+
+
 
 STATIC_URL = 'static/'
 
